@@ -15,7 +15,7 @@ router.post("/register", function(req, res, next) {
     where: { name }
   }).then(checkUser => {
     if (checkUser != null) {
-      res.json({ message: "This name is existed" });
+      res.json({ user: null, message: "This name is existed" });
     } else {
       createUser({ name, password }).then(user =>
         res.json({ user, msg: "account created successfully" })
